@@ -13,12 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FlowerTest {
     
-    private static Stream<PlantColor> eligiblePlantColors() {
-        return Arrays.stream(PlantColor.values())
-                     .filter(color -> color != PlantColor.GREEN);
-    }
-    
-    @ParameterizedTest(name = "\"{0}\" colored flower")
+    @ParameterizedTest(name = "\"{0}\" colored flower can be constructed")
     @DisplayName("eligible flower colors")
     @MethodSource("eligiblePlantColors")
     void getColor(PlantColor color) {
@@ -26,10 +21,16 @@ class FlowerTest {
         assertEquals(color, testee.getColor());
     }
     
+    private static Stream<PlantColor> eligiblePlantColors() {
+        return Arrays.stream(PlantColor.values())
+                     .filter(color -> color != PlantColor.GREEN);
+    }
+    
     @Test
     @DisplayName("green flowers are discriminated against")
     void greenColorNotAllowed() {
-        assertThrows(IllegalArgumentException.class,
-                     () -> new Flower(PlantColor.GREEN));
+        IllegalArgumentException thrownException = assertThrows(IllegalArgumentException.class,
+                                                                         () -> new Flower(PlantColor.GREEN));
+        assertEquals("No green flowers allowed!",thrownException.getMessage());
     }
 }

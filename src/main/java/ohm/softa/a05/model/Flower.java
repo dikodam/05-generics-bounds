@@ -6,7 +6,7 @@ public class Flower extends Plant {
     
     public Flower(PlantColor color) {
         if (color == PlantColor.GREEN) {
-            throw new IllegalArgumentException("no green flowers allowed");
+            throw new IllegalArgumentException("No green flowers allowed!");
         }
         this.color = color;
     }
