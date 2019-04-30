@@ -16,4 +16,5 @@ public class Flower extends Plant {
     public PlantColor getColor() {
         return color;
     }
+    
 }
