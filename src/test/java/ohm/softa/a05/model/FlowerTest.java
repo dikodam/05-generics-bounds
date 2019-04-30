@@ -17,7 +17,7 @@ class FlowerTest {
     @DisplayName("eligible flower colors")
     @MethodSource("eligiblePlantColors")
     void getColor(PlantColor color) {
-        Flower testee = new Flower(color);
+        Flower testee = new Flower(0.1, "foo", "bar", color);
         assertEquals(color, testee.getColor());
     }
     
@@ -30,7 +30,7 @@ class FlowerTest {
     @DisplayName("green flowers are discriminated against")
     void greenColorNotAllowed() {
         IllegalArgumentException thrownException = assertThrows(IllegalArgumentException.class,
-                                                                         () -> new Flower(PlantColor.GREEN));
-        assertEquals("No green flowers allowed!",thrownException.getMessage());
+                                                                () -> new Flower(0.2, "yup", "nop", PlantColor.GREEN));
+        assertEquals("No green flowers allowed!", thrownException.getMessage());
     }
 }

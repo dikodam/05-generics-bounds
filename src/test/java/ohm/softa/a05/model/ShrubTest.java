@@ -11,7 +11,7 @@ class ShrubTest {
     
     @BeforeEach
     void setUp() {
-        testee = new Shrub();
+        testee = new Shrub(4.2, "sicke family", "s1cker name");
     }
     
     @Test

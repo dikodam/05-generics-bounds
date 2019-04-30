@@ -6,6 +6,12 @@ public abstract class Plant {
     private String family;
     private String name;
     
+    public Plant(double height, String family, String name) {
+        this.height = height;
+        this.family = family;
+        this.name = name;
+    }
+    
     public double getHeight() {
         return height;
     }

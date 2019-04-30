@@ -4,7 +4,8 @@ public class Flower extends Plant {
     
     private PlantColor color;
     
-    public Flower(PlantColor color) {
+    public Flower(double height, String family, String name, PlantColor color) {
+        super(height, family, name);
         if (color == PlantColor.GREEN) {
             throw new IllegalArgumentException("No green flowers allowed!");
         }
